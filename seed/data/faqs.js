@@ -1,0 +1,17 @@
+module.exports = [
+  { category: 'Appointments', question: 'How do I book an appointment at HMS?', answer: 'You can book online by clicking "Book Appointment", or by calling +91-80-4567-8900.', order: 1 },
+  { category: 'Appointments', question: 'Can I book for someone else?', answer: "Yes. Provide the patient's name, age, and contact details when booking.", order: 2 },
+  { category: 'Appointments', question: 'How do I cancel or reschedule?', answer: 'Use "My Appointments" in your patient portal, or call the helpline at least 4 hours before your appointment.', order: 3 },
+  { category: 'Appointments', question: 'What happens if I miss my appointment?', answer: 'It will be marked "No Show". You will need to book a new appointment.', order: 4 },
+  { category: 'Appointments', question: 'Is there an online consultation option?', answer: 'Yes. Many doctors offer video consultations. Look for the "Online Available" badge on the doctor profile.', order: 5 },
+  { category: 'Billing & Insurance', question: 'What insurance plans does HMS accept?', answer: 'HMS accepts Star Health, HDFC ERGO, Bajaj Allianz, New India Assurance, ICICI Lombard, CGHS, ESIC, and more.', order: 6 },
+  { category: 'Billing & Insurance', question: 'How do I initiate cashless treatment?', answer: 'Visit the Insurance Desk (Ground Floor) with your insurance card and ID proof at least 2 hours before your procedure.', order: 7 },
+  { category: 'Billing & Insurance', question: 'What payment methods are accepted?', answer: 'Cash, credit/debit cards, net banking, UPI (Google Pay, PhonePe, Paytm), and EMI options.', order: 8 },
+  { category: 'Medical Records', question: 'How can I access my medical records?', answer: 'Through your Patient Portal after logging in. For physical copies, visit Medical Records (1st floor).', order: 9 },
+  { category: 'Medical Records', question: 'How long does HMS retain records?', answer: 'A minimum of 7 years from the last consultation date, in compliance with MCI guidelines.', order: 10 },
+  { category: 'Emergency', question: 'Is the Emergency Department open 24 hours?', answer: 'Yes. Our Emergency Department operates 24/7/365 with a Level I Trauma Centre.', order: 11 },
+  { category: 'Emergency', question: 'What is the HMS emergency number?', answer: 'Call 108 (ambulance) or +91-80-4567-8911 (direct emergency line). Available 24/7.', order: 12 },
+  { category: 'General', question: 'What are the hospital visiting hours?', answer: 'General ward: 10 AM–12 PM and 5 PM–7 PM. ICU: 11 AM–12 PM and 5 PM–6 PM (one visitor at a time).', order: 13 },
+  { category: 'General', question: 'Does HMS provide ambulance services?', answer: 'Yes. ALS and BLS ambulances are available 24/7. Call 108 or +91-80-4567-8911.', order: 14 },
+  { category: 'General', question: 'Are international patients welcome?', answer: 'Yes. HMS has a dedicated International Patient Services department for visa, travel, interpreters, and accommodation.', order: 15 },
+];

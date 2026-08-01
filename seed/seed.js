@@ -65,7 +65,7 @@ const run = async () => {
     patientId:'HMS-P-001',
     age:      36,
     bloodGroup: 'B+',
-    address:  { street: '42, Green Park Colony', city: 'Bangalore', state: 'Karnataka', pincode: '560001' },
+    address:  { street: '', city: 'Ramanathapuram', state: 'Tamil Nadu', pincode: '' },
     emergencyContact: { name: 'Sunita Sharma', relation: 'Wife', phone: '+91 9988776655' },
     allergies: ['Penicillin', 'Dust', 'Shellfish'],
     medicalHistory: [

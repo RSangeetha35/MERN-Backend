@@ -35,6 +35,9 @@ const buildOrigins = () => {
     'http://localhost:3000',
     'http://localhost:3001',
     'https://localhost:3000',
+    
+  "https://hospital-management-system-one-orcin-52.vercel.app",
+
   ]);
 
   // CLIENT_URL can be a comma-separated list of allowed origins
@@ -52,10 +55,11 @@ app.use(cors({
     // Allow non-browser requests (Postman, Render health checks, server-to-server)
     if (!origin) return cb(null, true);
 
-    // In production allow any *.onrender.com subdomain automatically
+    // In production allow any *.onrender.com or *.vercel.app subdomain automatically
     if (
       allowedOrigins.includes(origin) ||
       /^https:\/\/.*\.onrender\.com$/.test(origin) ||
+      /^https:\/\/.*\.vercel\.app$/.test(origin) ||
       process.env.NODE_ENV !== 'production'
     ) {
       return cb(null, true);

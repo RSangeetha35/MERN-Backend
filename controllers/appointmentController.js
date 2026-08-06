@@ -69,20 +69,28 @@ const createAppointment = asyncHandler(async (req, res) => {
     isUrgent,
   } = req.body;
 
-  // 1. Verify doctor
+  // 1. Validate doctorId is a real MongoDB ObjectId
+  if (!doctorId || !doctorId.match(/^[a-f\d]{24}$/i)) {
+    return res.status(400).json({
+      success: false,
+      message: 'Invalid doctor ID. Please select a valid doctor from the list.',
+    });
+  }
+
+  // 2. Verify doctor exists
   const doctor = await Doctor.findById(doctorId);
   if (!doctor) {
     return res.status(404).json({ success: false, message: 'Doctor not found.' });
   }
 
-  // 2. Ensure patient profile exists (auto-create if needed)
+  // 3. Ensure patient profile exists (auto-create if needed)
   const patient = await getOrCreatePatient(req.user);
 
-  // 3. Create appointment
+  // 4. Create appointment
   const appointment = await Appointment.create({
     patient:        patient._id,
     doctor:         doctor._id,
-    department:     departmentId || null,
+    department:     departmentId && departmentId.match(/^[a-f\d]{24}$/i) ? departmentId : null,
     doctorName:     doctor.name,
     doctorImage:    doctor.image || '',
     departmentName: departmentName || doctor.department || '',
@@ -98,7 +106,7 @@ const createAppointment = asyncHandler(async (req, res) => {
     status:       'Confirmed',
   });
 
-  // 4. Create in-app notification
+  // 5. Create in-app notification (non-fatal)
   try {
     await Notification.create({
       patient:    patient._id,
@@ -108,7 +116,6 @@ const createAppointment = asyncHandler(async (req, res) => {
       actionLink: '/patient/appointments',
     });
   } catch (notifErr) {
-    // Non-fatal — appointment was created successfully
     console.warn('[createAppointment] Notification failed:', notifErr.message);
   }
 
